@@ -1,0 +1,17 @@
+#N canvas 770 192 450 300 10;
+#X obj 98 165 rzero_rev~;
+#X obj 98 187 rpole~, f 15;
+#X floatatom 155 111 5 0 0 0 - - -, f 5;
+#X obj 155 130 / 100;
+#X obj 65 227 +~, f 6;
+#X obj 65 106 noise~;
+#X obj 65 269 dac~;
+#X connect 0 0 1 0;
+#X connect 1 0 4 1;
+#X connect 2 0 3 0;
+#X connect 3 0 0 1;
+#X connect 3 0 1 1;
+#X connect 4 0 6 0;
+#X connect 4 0 6 1;
+#X connect 5 0 4 0;
+#X connect 5 0 0 0;
