@@ -1,0 +1,187 @@
+#N canvas 369 195 956 698 10;
+#X obj 178 232 pack 0 0 0;
+#X obj 178 208 poly 4 1, f 10;
+#X obj 178 261 route 1 2 3 4;
+#N canvas 271 63 734 461 voices 1;
+#X obj 76 122 inlet;
+#X obj 76 297 outlet~;
+#X obj 214 122 inlet;
+#X obj 328 124 inlet;
+#X obj 449 124 inlet;
+#X obj 76 226 +~;
+#X obj 76 248 +~;
+#X obj 76 270 +~;
+#X obj 76 166 vArchitecture;
+#X obj 328 166 vArchitecture;
+#X obj 214 166 vArchitecture;
+#X obj 449 166 vArchitecture;
+#X connect 0 0 8 0;
+#X connect 2 0 10 0;
+#X connect 3 0 9 0;
+#X connect 4 0 11 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 1;
+#X connect 10 0 5 1;
+#X connect 11 0 7 1;
+#X restore 178 294 pd voices;
+#X obj 176 434 dac~;
+#X obj 178 208 poly 4 1, f 10;
+#X obj 178 41 metro 500;
+#X obj 178 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 623 291 number fires poly and 1 and delayed 0 and delayed itself
+;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array pitches 100 float 3;
+#A 0 60 64 65 67 69 70 72 76 77 79 81 82 84 88 89 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143 0.457143
+0.457143 0.457143 0.457143 0.457143 0.457143 -1.45719 -1.45005 -1.4429
+-1.43576 -1.43219 -1.42862 -1.42862 -1.42147 -1.42147 -1.41433 -1.40719
+-1.40004 -1.3929 -1.09289;
+#X coords 0 1 100 -0 200 140 1 0 0;
+#X restore 701 665 graph;
+#X obj 178 93 tabread pitches;
+#X obj 42 97 print tab;
+#X obj 178 338 +~;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array pitches_2 100 float 3;
+#A 0 60 62 63 65 67 69 70 72 74 75 77 79 81 82 84 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 451 733 graph;
+#N canvas 477 114 725 716 drunk 0;
+#X obj 147 381 - 1;
+#X floatatom 147 403 5 0 0 0 - - -, f 5;
+#X obj 147 336 random 2;
+#X obj 72 226 inlet;
+#X obj 122 620 outlet;
+#X floatatom 207 237 5 0 0 0 - - -, f 5;
+#X obj 207 338 -, f 11;
+#X obj 243 313 t b f;
+#X floatatom 207 360 5 0 0 0 - - -, f 5;
+#X obj 147 442 *, f 25;
+#X obj 147 498 +, f 15;
+#X floatatom 147 520 5 0 0 0 - - -, f 5;
+#X obj 207 467 t b f;
+#X obj 267 412 t b f;
+#X obj 207 206 r drunk;
+#X obj 207 383 * -1;
+#X floatatom 302 391 5 0 0 0 - - -, f 5;
+#X obj 302 347 +, f 10;
+#X obj 302 369 - 1;
+#X obj 302 295 < 6;
+#X obj 332 295 > -6;
+#X obj 332 318 t b f;
+#X obj 207 286 > 5;
+#X obj 243 286 < -5;
+#X obj 120 560 +, f 5;
+#X obj 72 561 f 12;
+#X obj 72 620 s drunk;
+#X text 348 449 Left creates value to add if outside range Right checks
+if value is in range to cancel it Value is always plus or minus 1;
+#X obj 147 357 * 2, f 4;
+#X connect 0 0 1 0;
+#X connect 1 0 9 0;
+#X connect 2 0 28 0;
+#X connect 3 0 2 0;
+#X connect 3 0 25 0;
+#X connect 5 0 19 0;
+#X connect 5 0 20 0;
+#X connect 5 0 22 0;
+#X connect 5 0 23 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X connect 7 1 6 1;
+#X connect 8 0 15 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 24 1;
+#X connect 12 0 10 0;
+#X connect 12 1 10 1;
+#X connect 13 0 9 0;
+#X connect 13 1 9 1;
+#X connect 14 0 5 0;
+#X connect 15 0 12 0;
+#X connect 16 0 13 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 19 0 17 0;
+#X connect 20 0 21 0;
+#X connect 21 0 17 0;
+#X connect 21 1 17 1;
+#X connect 22 0 6 0;
+#X connect 23 0 7 0;
+#X connect 24 0 25 1;
+#X connect 25 0 24 0;
+#X connect 25 0 26 0;
+#X connect 25 0 4 0;
+#X connect 28 0 0 0;
+#X restore 356 82 pd drunk;
+#X obj 355 104 + 7;
+#X msg 433 470 \; pitches 0 60 62 63 65 67 69 70 72 74 75 77 79 81
+82 84;
+#X floatatom 362 140 5 0 0 0 - - -, f 5;
+#X floatatom 256 14 5 0 0 0 - - -, f 5;
+#X obj 365 34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 83 216 print;
+#N canvas 444 112 731 551 notePipe 0;
+#X msg 402 142 1;
+#X msg 184 143 0;
+#X obj 75 174 pipe 0 0 4000, f 37;
+#X obj 75 88 inlet;
+#X obj 294 236 outlet;
+#X obj 75 244 outlet;
+#X msg 460 170 2000;
+#X obj 75 118 t f b f b, f 55;
+#X msg 494 194 20;
+#X connect 0 0 4 0;
+#X connect 1 0 2 1;
+#X connect 2 0 5 0;
+#X connect 2 1 4 0;
+#X connect 3 0 7 0;
+#X connect 6 0 2 2;
+#X connect 7 0 2 0;
+#X connect 7 1 1 0;
+#X connect 7 2 5 0;
+#X connect 7 3 0 0;
+#X connect 8 0 2 2;
+#X restore 178 120 pd notePipe;
+#X obj 178 360 *~ 0.3;
+#X obj 178 142 + 0;
+#X connect 0 0 2 0;
+#X connect 0 0 20 0;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 1 2 0 2;
+#X connect 2 0 3 0;
+#X connect 2 1 3 1;
+#X connect 2 2 3 2;
+#X connect 2 3 3 3;
+#X connect 3 0 12 0;
+#X connect 6 0 14 0;
+#X connect 7 0 6 0;
+#X connect 10 0 21 0;
+#X connect 12 0 22 0;
+#X connect 14 0 15 0;
+#X connect 15 0 10 0;
+#X connect 15 0 17 0;
+#X connect 18 0 6 1;
+#X connect 19 0 14 0;
+#X connect 21 0 23 0;
+#X connect 21 1 1 1;
+#X connect 22 0 4 0;
+#X connect 22 0 4 1;
+#X connect 23 0 1 0;
