@@ -1,0 +1,47 @@
+#N canvas 515 143 617 387 10;
+#X msg 135 51 feedfwd \$1;
+#X msg 135 169 indelay \$1;
+#X obj 138 26 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X floatatom 212 51 5 0 0 0 - - -, f 5;
+#X obj 138 146 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6700 1;
+#X text 36 31 Comb filter;
+#X text 279 25 Feedforward amount (0...0.999);
+#X obj 138 86 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 7800 1;
+#X floatatom 242 111 5 0 0 0 - - -, f 5;
+#X text 279 85 Feedback amount (0...0.999);
+#X msg 135 111 feedback \$1;
+#X floatatom 212 171 5 0 0 0 - - -, f 5;
+#X obj 138 206 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6000 1;
+#X floatatom 212 231 5 0 0 0 - - -, f 5;
+#X text 273 207 Input delay time (0...50ms);
+#X obj 137 256 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3800 1;
+#X floatatom 211 281 5 0 0 0 - - -, f 5;
+#X msg 134 279 slide \$1;
+#X text 273 257 Delay update interpolation time (0...1000ms);
+#X text 273 147 Output delay time (0...50ms);
+#X msg 135 229 outdelay \$1;
+#X obj 18 288 inlet~;
+#X obj 18 351 outlet~;
+#X obj 18 319 hv.comb;
+#X connect 0 0 23 1;
+#X connect 1 0 23 1;
+#X connect 2 0 0 0;
+#X connect 2 0 3 0;
+#X connect 4 0 1 0;
+#X connect 4 0 11 0;
+#X connect 7 0 10 0;
+#X connect 7 0 8 0;
+#X connect 10 0 23 1;
+#X connect 12 0 20 0;
+#X connect 12 0 13 0;
+#X connect 15 0 17 0;
+#X connect 15 0 16 0;
+#X connect 17 0 23 1;
+#X connect 20 0 23 1;
+#X connect 21 0 23 0;
+#X connect 23 0 22 0;

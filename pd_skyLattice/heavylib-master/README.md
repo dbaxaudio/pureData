@@ -1,19 +1,29 @@
 # heavylib
-Library of [Heavy](https://enzienaudio.com) compatible abstractions.
+Library of [heavy](https://enzienaudio.com) compatible abstractions.
 
 See the -help.pd patches for more information on each object.
 
 Synthesis
 ---
-`[hv.blepsaw]` - Band-limited PolyBlep sawtooth signal generator. [_more info_](https://github.com/cfloisand/pd-polyblep/blob/master/Source/polyblep~.c)
+### Band-limited oscillators
+
+`[hv.osc saw]` - Band-limited PolyBlep sawtooth signal generator. [_more info_](https://github.com/cfloisand/pd-polyblep/blob/master/Source/polyblep~.c)
+
+`[hv.osc sine]` - Same as Pd `[osc~]` added for convenience.
+
+`[hv.osc square]` - Band-limited PolyBlep square signal generator.
+
+### Noise
 
 `[hv.pinknoise]` - Cheapish pinknoise generator. [_more info_](http://www.firstpr.com.au/dsp/pink-noise/)
 
+### Envelopes
+
 `[hv.vline]` - Envelope generator, replacement for Pd's [vline~] object.
+
 
 Processing
 ---
-
 ### Dynamics
 
 `[hv.compressor]` - Compressor unit with Threshold and Ratio parameters. (Attack/Release is fixed at 40ms)
@@ -56,6 +66,8 @@ Processing
 
 Math Operations
 ---
+`[hv.exp]` - Signal-rate exponential ( exp ), alternative implementation.
+
 `[hv.gt]` - Signal-rate greater than ( > ).
 
 `[hv.gte]` - Signal-rate greater than or equal to ( >= ).
@@ -65,6 +77,10 @@ Math Operations
 `[hv.lt]` - Signal-rate less than ( < ).
 
 `[hv.lte]` - Signal-rate less than or equal to ( <= ).
+
+`[hv.multiplex]` - Mix between two input signals based on a comparator.
+
+`[hv.pow]` - Signal-rate exponent ( x ^ y ), alternative implementation.
 
 `[hv.tanh]` - Static non-linear waveshaper.
 
