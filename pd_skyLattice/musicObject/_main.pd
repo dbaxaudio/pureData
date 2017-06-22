@@ -1,4 +1,4 @@
-#N canvas 352 23 1224 975 10;
+#N canvas 208 185 1224 975 10;
 #X declare -path droneMachine;
 #X declare -path heavyLib;
 #X obj 98 641 droneMachine;

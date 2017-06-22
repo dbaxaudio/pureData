@@ -1,33 +1,36 @@
-#N canvas 515 143 617 387 10;
-#X msg 135 51 feedfwd \$1;
-#X msg 135 169 indelay \$1;
-#X obj 138 26 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 12700 1;
-#X floatatom 212 51 5 0 0 0 - - -, f 5;
-#X obj 138 146 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 6700 1;
-#X text 36 31 Comb filter;
-#X text 279 25 Feedforward amount (0...0.999);
-#X obj 138 86 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 7800 1;
-#X floatatom 242 111 5 0 0 0 - - -, f 5;
-#X text 279 85 Feedback amount (0...0.999);
-#X msg 135 111 feedback \$1;
-#X floatatom 212 171 5 0 0 0 - - -, f 5;
-#X obj 138 206 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 6000 1;
-#X floatatom 212 231 5 0 0 0 - - -, f 5;
-#X text 273 207 Input delay time (0...50ms);
-#X obj 137 256 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3800 1;
-#X floatatom 211 281 5 0 0 0 - - -, f 5;
-#X msg 134 279 slide \$1;
-#X text 273 257 Delay update interpolation time (0...1000ms);
-#X text 273 147 Output delay time (0...50ms);
-#X msg 135 229 outdelay \$1;
-#X obj 18 288 inlet~;
-#X obj 18 351 outlet~;
-#X obj 18 319 hv.comb;
+#N canvas 515 143 791 707 10;
+#X msg 161 239 feedfwd \$1;
+#X msg 161 357 indelay \$1;
+#X obj 164 214 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8890 1;
+#X floatatom 238 239 5 0 0 0 - - -, f 5;
+#X obj 164 334 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 10668 1;
+#X text 62 219 Comb filter;
+#X text 305 213 Feedforward amount (0...0.999);
+#X obj 164 274 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 5080 1;
+#X floatatom 268 299 5 0 0 0 - - -, f 5;
+#X text 305 273 Feedback amount (0...0.999);
+#X msg 161 299 feedback \$1;
+#X floatatom 238 359 5 0 0 0 - - -, f 5;
+#X obj 164 394 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1524 1;
+#X floatatom 238 419 5 0 0 0 - - -, f 5;
+#X text 299 395 Input delay time (0...50ms);
+#X obj 163 444 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 10668 1;
+#X floatatom 237 469 5 0 0 0 - - -, f 5;
+#X msg 160 467 slide \$1;
+#X text 299 445 Delay update interpolation time (0...1000ms);
+#X text 299 335 Output delay time (0...50ms);
+#X msg 161 417 outdelay \$1;
+#X obj 44 476 inlet~;
+#X obj 44 539 outlet~;
+#X obj 44 507 hv.comb;
+#X obj 67 21 loadbang;
+#X msg 67 43 0.7 0.4 42 6 42;
+#X obj 67 65 unpack f f f f f;
 #X connect 0 0 23 1;
 #X connect 1 0 23 1;
 #X connect 2 0 0 0;
@@ -45,3 +48,10 @@
 #X connect 20 0 23 1;
 #X connect 21 0 23 0;
 #X connect 23 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 2 0;
+#X connect 26 1 7 0;
+#X connect 26 2 4 0;
+#X connect 26 3 12 0;
+#X connect 26 4 15 0;
