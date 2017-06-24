@@ -1,4 +1,4 @@
-#N canvas 1021 316 322 176 10;
+#N canvas 1003 304 308 216 10;
 #N canvas 1 23 511 696 tempo>Metro-Calc 0;
 #X obj 203 140 inlet;
 #X obj 203 163 / 60;
@@ -34,10 +34,10 @@
 #X connect 13 0 16 0;
 #X connect 14 0 13 0;
 #X connect 15 0 14 0;
-#X restore 75 74 pd tempo>Metro-Calc;
-#X obj 75 53 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X restore 68 106 pd tempo>Metro-Calc;
+#X obj 68 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
-#N canvas 29 137 771 282 pulseDivisor 1;
+#N canvas 29 137 771 282 pulseDivisor 0;
 #X obj 612 19 inlet metro 1/32;
 #X obj 612 41 f;
 #X obj 641 41 + 1;
@@ -100,11 +100,16 @@
 #X connect 17 0 32 0;
 #X connect 33 0 34 0;
 #X connect 34 0 25 0;
-#X restore 75 96 pd pulseDivisor;
-#X obj 75 23 inlet on/off;
-#X obj 186 44 inlet tempo;
-#X text 18 128 All outputs are remotely sent \, 4/1 to 1/32;
+#X restore 68 128 pd pulseDivisor;
+#X obj 68 14 inlet on/off;
+#X obj 179 76 inlet tempo;
+#X text 11 160 All outputs are remotely sent \, 4/1 to 1/32;
+#X obj 94 86 s clkTrig;
+#X text 11 180 clkTrig for reseting sequencers;
+#X obj 94 65 sel 0;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
+#X connect 1 0 8 0;
 #X connect 3 0 1 0;
 #X connect 4 0 0 1;
+#X connect 8 0 6 0;
