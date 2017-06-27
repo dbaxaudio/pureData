@@ -5,11 +5,11 @@
 -1 -1 8890 1;
 #X floatatom 238 239 5 0 0 0 - - -, f 5;
 #X obj 164 334 hsl 128 15 0 50 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 10668 1;
+-1 -1 8382 1;
 #X text 62 219 Comb filter;
 #X text 305 213 Feedforward amount (0...0.999);
 #X obj 164 274 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 5080 1;
+-1 -1 7620 1;
 #X floatatom 268 299 5 0 0 0 - - -, f 5;
 #X text 305 273 Feedback amount (0...0.999);
 #X msg 161 299 feedback \$1;
@@ -29,8 +29,12 @@
 #X obj 44 539 outlet~;
 #X obj 44 507 hv.comb;
 #X obj 67 21 loadbang;
-#X msg 67 43 0.7 0.4 42 6 42;
 #X obj 67 65 unpack f f f f f;
+#X floatatom 562 361 5 0 0 0 - - -, f 5;
+#X obj 562 317 random 45;
+#X obj 562 339 + 5;
+#X obj 562 268 r clk_1/1;
+#X msg 67 43 0.7 0.6 42 6 42;
 #X connect 0 0 23 1;
 #X connect 1 0 23 1;
 #X connect 2 0 0 0;
@@ -48,10 +52,14 @@
 #X connect 20 0 23 1;
 #X connect 21 0 23 0;
 #X connect 23 0 22 0;
-#X connect 24 0 25 0;
-#X connect 25 0 26 0;
-#X connect 26 0 2 0;
-#X connect 26 1 7 0;
-#X connect 26 2 4 0;
-#X connect 26 3 12 0;
-#X connect 26 4 15 0;
+#X connect 24 0 30 0;
+#X connect 25 0 2 0;
+#X connect 25 1 7 0;
+#X connect 25 2 4 0;
+#X connect 25 3 12 0;
+#X connect 25 4 15 0;
+#X connect 26 0 4 0;
+#X connect 27 0 28 0;
+#X connect 28 0 26 0;
+#X connect 29 0 27 0;
+#X connect 30 0 25 0;

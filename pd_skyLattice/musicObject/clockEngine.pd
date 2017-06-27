@@ -14,7 +14,7 @@
 #X obj 161 323 * 0.125;
 #X text 216 323 metro = 1/32;
 #X obj 74 376 metro, f 15;
-#X obj 74 341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 74 341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 74 312 inlet ON;
 #X obj 74 398 outlet 1/32;
@@ -35,12 +35,12 @@
 #X connect 14 0 13 0;
 #X connect 15 0 14 0;
 #X restore 68 106 pd tempo>Metro-Calc;
-#X obj 68 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 68 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
-#N canvas -58 84 896 537 pulseDivisor 1;
+#N canvas 128 338 896 537 pulseDivisor 1;
 #X obj 612 19 inlet metro 1/32;
-#X obj 612 41 f;
-#X obj 641 41 + 1;
+#X obj 612 71 f;
+#X obj 641 71 + 1;
 #X text 655 195 1/32;
 #X obj 79 191 % 128;
 #X obj 159 191 % 64;
@@ -77,9 +77,12 @@
 #X obj 582 355 + 1;
 #X floatatom 539 377 5 0 0 0 - - -, f 5;
 #X obj 539 396 % 16;
-#X msg 477 324 0;
 #X obj 477 295 r clkTrig;
 #X obj 539 432 s clk_1/16e;
+#X obj 541 19 r clkTrig;
+#X floatatom 643 115 5 0 0 0 - - -, f 5;
+#X msg 477 324 -1;
+#X msg 541 48 -1;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 1 0 10 0;
@@ -90,6 +93,7 @@
 #X connect 1 0 5 0;
 #X connect 1 0 4 0;
 #X connect 1 0 33 0;
+#X connect 1 0 42 0;
 #X connect 2 0 1 1;
 #X connect 4 0 17 0;
 #X connect 5 0 16 0;
@@ -112,9 +116,11 @@
 #X connect 35 0 37 0;
 #X connect 36 0 35 1;
 #X connect 37 0 38 0;
-#X connect 38 0 41 0;
-#X connect 39 0 35 0;
-#X connect 40 0 39 0;
+#X connect 38 0 40 0;
+#X connect 39 0 43 0;
+#X connect 41 0 44 0;
+#X connect 43 0 35 0;
+#X connect 44 0 1 0;
 #X restore 68 128 pd pulseDivisor;
 #X obj 68 14 inlet on/off;
 #X obj 179 76 inlet tempo;
