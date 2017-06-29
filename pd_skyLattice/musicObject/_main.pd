@@ -1,4 +1,4 @@
-#N canvas 27 23 1251 847 10;
+#N canvas 425 167 1251 847 10;
 #X declare -path droneMachine;
 #X declare -path heavyLib;
 #X obj 98 513 droneMachine;
@@ -57,7 +57,7 @@
 #X obj 98 232 chanceObject;
 #X text 207 210 perCent_chance;
 #X msg 149 277 6;
-#X obj 69 270 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 69 280 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 596 85 droneMachine Controls;
 #X obj 232 181 r droneChance @hv_param 0 100 25;
@@ -86,7 +86,7 @@
 #X obj 673 648 throw~ monoMel;
 #X obj 98 541 throw~ drMachL, f 7;
 #X obj 167 541 throw~ drMachR, f 7;
-#N canvas 597 845 1213 739 summingOutput 1;
+#N canvas 475 241 1213 739 summingOutput 0;
 #X obj 164 78 catch~ monoMel;
 #X obj 443 158 catch~ drMachL;
 #X obj 515 178 catch~ drMachR;
@@ -158,34 +158,82 @@
 #X restore 797 351 graph;
 #X restore 4 -70 pd tablesScales;
 #X obj 98 466 scaleWrapObject;
-#N canvas 281 277 534 363 arp 0;
-#X obj 181 69 inlet trigger;
-#X obj 181 131 f;
-#X obj 224 131 + 1;
-#X obj 159 69 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X floatatom 181 153 5 0 0 0 - - -, f 5;
-#X msg 127 68 0;
-#X obj 181 172 % 4;
-#X floatatom 181 256 5 0 0 0 - - -, f 5;
-#X obj 181 275 outlet arpInt;
-#X obj 181 234 tabread arp1_triad_4_major;
-#X msg 288 169 set arp1_triad_4_major;
-#X msg 317 186 set arp1_triad_4_minorPent;
-#X obj 127 24 r clkTrig;
+#N canvas 188 284 981 826 arp 1;
+#X obj 171 89 inlet trigger;
+#X obj 171 151 f;
+#X obj 214 151 + 1;
+#X floatatom 171 173 5 0 0 0 - - -, f 5;
+#X msg 117 88 0;
+#X obj 171 192 % 4;
+#X floatatom 171 276 5 0 0 0 - - -, f 5;
+#X obj 171 745 outlet arpInt;
+#X obj 171 254 tabread arp1_triad_4_major;
+#X msg 278 189 set arp1_triad_4_major;
+#X msg 307 206 set arp1_triad_4_minorPent;
+#X obj 117 44 r clkTrig;
+#X obj 171 375 spigot;
+#X obj 204 328 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 226 328 active;
+#X obj 204 351 startSyncObject;
+#X obj 204 305 r monoMelToggle @hv_param 0 1 0;
+#X obj 188 696 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 277 514 5 0 0 0 - - -, f 5;
+#X obj 277 621 spigot;
+#X obj 310 589 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 310 534 sel 0;
+#X obj 277 643 % 4, f 37;
+#X floatatom 277 665 5 0 0 0 - - -, f 5;
+#X obj 277 452 r clk_1/16;
+#X obj 277 484 f;
+#X obj 311 484 + 1;
+#X msg 246 452 0;
+#X obj 477 352 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 496 615 random 6;
+#X text 573 520 trigger resets counter toggles spigot count flow randomises
+mod wrap which turns self off after wrap;
+#X obj 188 716 random 12;
+#X obj 477 328 r monoMelStairTrigger @hv_event;
+#X obj 477 377 t b b b;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
-#X connect 1 0 4 0;
+#X connect 1 0 3 0;
 #X connect 2 0 1 1;
-#X connect 3 0 1 0;
-#X connect 4 0 6 0;
-#X connect 5 0 1 0;
-#X connect 6 0 9 0;
-#X connect 7 0 8 0;
-#X connect 9 0 7 0;
-#X connect 10 0 9 0;
-#X connect 11 0 9 0;
-#X connect 12 0 5 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 8 0;
+#X connect 6 0 12 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 4 0;
+#X connect 12 0 7 0;
+#X connect 13 0 15 0;
+#X connect 15 0 12 1;
+#X connect 16 0 13 0;
+#X connect 17 0 31 0;
+#X connect 18 0 19 0;
+#X connect 19 0 22 0;
+#X connect 20 0 19 1;
+#X connect 21 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 21 0;
+#X connect 23 0 17 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 25 0 18 0;
+#X connect 26 0 25 1;
+#X connect 27 0 25 0;
+#X connect 28 0 33 0;
+#X connect 29 0 22 1;
+#X connect 31 0 7 0;
+#X connect 32 0 28 0;
+#X connect 33 0 20 0;
+#X connect 33 1 29 0;
+#X connect 33 2 27 0;
 #X restore 673 519 pd arp;
 #X obj 673 574 scaleWrapObject;
 #X obj 673 541 +, f 8;
@@ -207,7 +255,7 @@
 #X obj 311 141 loadbang;
 #X msg 311 163 120;
 #X floatatom 311 193 5 0 0 0 - - -, f 5;
-#X obj 248 141 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 248 141 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 248 213 clockEngine;
 #X obj 267 115 r clockStart @hv_event;
@@ -234,32 +282,93 @@
 #X obj 537 182 throw~ drum_1;
 #X obj 623 182 throw~ kickObject;
 #X obj 732 181 throw~ jazzChordObject;
-#N canvas 188 446 638 354 Mixer_UI 0;
-#X obj 103 100 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+#N canvas 806 272 668 479 Mixer_UI 0;
+#X obj 253 250 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 5080 1;
-#X obj 103 115 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 253 265 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 5080 1;
-#X obj 103 130 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 253 280 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 10160 1;
-#X obj 103 145 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 253 295 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 6350 1;
-#X obj 103 160 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 253 310 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 5080 1;
-#X text 236 100 [1] monoMel;
-#X text 236 115 [2] hats;
-#X text 236 129 [3] kick;
-#X text 236 144 [4] jazzChord;
-#X text 236 158 [5] Drone;
-#X obj -35 -9 loadbang;
-#X obj 20 173 s mx1;
-#X obj 20 190 s mx2;
-#X obj 20 207 s mx3;
-#X obj 20 224 s mx4;
-#X obj 20 241 s mx5;
-#X obj -35 65 unpack f f f f f;
-#X msg -35 43 0.4 0.4 0.8 0.5 0.4;
-#X obj -16 19 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X text 386 250 [1] monoMel;
+#X text 386 265 [2] hats;
+#X text 386 279 [3] kick;
+#X text 386 294 [4] jazzChord;
+#X text 386 308 [5] Drone;
+#X obj 156 152 loadbang;
+#X obj 211 334 s mx1;
+#X obj 211 351 s mx2;
+#X obj 211 368 s mx3;
+#X obj 211 385 s mx4;
+#X obj 211 402 s mx5;
+#X obj 156 226 unpack f f f f f;
+#X msg 156 204 0.4 0.4 0.8 0.5 0.4;
+#X obj 175 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 768 453 766 424 mxParamsPack 0;
+#X obj 48 82 inlet;
+#X obj 114 82 inlet;
+#X obj 186 82 inlet;
+#X obj 252 82 inlet;
+#X obj 334 82 inlet;
+#X obj 379 99 inlet;
+#X obj 48 176 pack f f;
+#X msg 48 201 \$1 \$2;
+#X obj 48 225 line, f 6;
+#X obj 48 281 outlet;
+#X obj 114 281 outlet;
+#X obj 186 281 outlet;
+#X obj 252 281 outlet;
+#X obj 334 281 outlet;
+#X obj 114 176 pack f f;
+#X msg 114 201 \$1 \$2;
+#X obj 114 225 line, f 6;
+#X obj 186 176 pack f f;
+#X msg 186 201 \$1 \$2;
+#X obj 186 225 line, f 6;
+#X obj 252 176 pack f f;
+#X msg 252 201 \$1 \$2;
+#X obj 252 225 line, f 6;
+#X obj 334 176 pack f f;
+#X msg 334 201 \$1 \$2;
+#X obj 334 225 line, f 6;
+#X text 421 99 Mix interpolation time;
+#X text 48 30 individual mix channel settings from Unity;
+#X connect 0 0 6 0;
+#X connect 1 0 14 0;
+#X connect 2 0 17 0;
+#X connect 3 0 20 0;
+#X connect 4 0 23 0;
+#X connect 5 0 6 1;
+#X connect 5 0 14 1;
+#X connect 5 0 17 1;
+#X connect 5 0 20 1;
+#X connect 5 0 23 1;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 10 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 11 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 12 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 13 0;
+#X restore 294 215 pd mxParamsPack;
+#X obj 294 84 r mxh1 @hv_param 0 1 0.4;
+#X obj 311 101 r mxh2 @hv_param 0 1 0.4;
+#X obj 328 118 r mxh3 @hv_param 0 1 0.8;
+#X obj 346 135 r mxh4 @hv_param 0 1 0.5;
+#X obj 363 152 r mxh5 @hv_param 0 1 0.4;
+#X obj 405 181 r mxhGlideTime @hv_param 0 10000 5000;
 #X connect 0 0 11 0;
 #X connect 1 0 12 0;
 #X connect 2 0 13 0;
@@ -274,7 +383,18 @@
 #X connect 16 4 4 0;
 #X connect 17 0 16 0;
 #X connect 18 0 17 0;
-#X coords 0 -1 1 1 250 75 2 100 100;
+#X connect 19 0 0 0;
+#X connect 19 1 1 0;
+#X connect 19 2 2 0;
+#X connect 19 3 3 0;
+#X connect 19 4 4 0;
+#X connect 20 0 19 0;
+#X connect 21 0 19 1;
+#X connect 22 0 19 2;
+#X connect 23 0 19 3;
+#X connect 24 0 19 4;
+#X connect 25 0 19 5;
+#X coords 0 -1 1 1 250 75 2 250 250;
 #X restore 210 -25 pd Mixer_UI;
 #X connect 0 0 46 0;
 #X connect 0 1 47 0;

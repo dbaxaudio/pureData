@@ -1,0 +1,10 @@
+#N canvas 0 22 740 593 10;
+#X floatatom 391 245 5 0 0 0 - - -, f 5;
+#X obj 280 276 f, f 19;
+#X obj 280 335 outlet;
+#X obj 391 150 inlet patternIndex;
+#X obj 280 218 inlet clock;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
